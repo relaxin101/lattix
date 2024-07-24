@@ -1,3 +1,28 @@
 <.flash_group flash={@flash} />
 
+<section>
+  <div>
+    <%= if (map_size(@posts)) > 0 do%>
+      <%= for post <- @posts do %>
+        <div class="border-2 rounded-md my-2 p-2 justify-center">
+          <.link navigate={~p"/posts/#{post.id}"}>
+            <h2 class="text-center"> <%= post.title %> </h2>
+                  <div>
+                    <span class="flex-grow-0 overflow-ellipsis"><%=post.content%></span>
+                    <span class="flex-grow"></span>
+                  </div>
+          </.link>
+        </div>
+      <% end %>
+    <% else %>
+    <span class="p-5 m-9"> Login to see your posts...</span>
+    <% end %>
+  <div class="flex items-center justify-start align-center">
+    <.link navigate={~p"/posts/new"} class="rounded-md border-1 bg-green-800 p-3">
+      New Post
+    </.link>
+  </div>
 
+
+  </div>
+</section>

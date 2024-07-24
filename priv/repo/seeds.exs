@@ -9,3 +9,7 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias Lattix.Account.User
+Lattix.Repo.insert!(User.registration_changeset(%User{}, %{ :name => "Alex", :email => "alex@example.com", :password => "asdf1234567890"}))
+
